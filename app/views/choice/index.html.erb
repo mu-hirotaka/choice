@@ -1,19 +1,21 @@
 <div class="text-center">
-  <div class="question">ドリブルスピード速いのはどっち？</div>
+  <div class="question"><%= @question[:content] %></div>
   <div class="row">
-    <div class="col-xs-6">
-      <%= image_tag("character/cr7.png") %>
+    <div id="left-img" class="col-xs-6">
+      <% left_img_path = ['/assets/character/', @question[:id], '/', @left_character[:id], '.png'].join() %>
+      <img src="<%= left_img_path %>">
     </div>
-    <div class="col-xs-6">
-      <%= image_tag("character/rb.png") %>
+    <div id="right-img" class="col-xs-6">
+      <% right_img_path = ['/assets/character/', @question[:id], '/', @right_character[:id], '.png'].join() %>
+      <img src="<%= right_img_path %>">
     </div>
   </div>
   <div class="row">
     <div class="col-xs-6">
-      <button id="left-btn" class="btn btn-warning btn-lg" style="width:100%">ロナウド</button>
+      <button id="left-btn" class="btn btn-warning btn-lg" style="width:100%"><%= @left_character[:name] %></button>
     </div>
     <div class="col-xs-6">
-      <button id="right-btn" class="btn btn-warning btn-lg" style="width:100%">ロッベン</button>
+      <button id="right-btn" class="btn btn-warning btn-lg" style="width:100%"><%= @right_character[:name] %></button>
     </div>
   </div>
 </div>
