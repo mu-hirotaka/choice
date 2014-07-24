@@ -13,4 +13,7 @@ class ChoiceController < ApplicationController
     elected = candidates.sample
     render :json => { :name => elected.name, :character_id => elected.character_id, :quest_id => quest.id }
   end
+  def done
+    @character = Character.where('quest_id = ? AND character_id = ?', params[:qid], params[:cid]).sample
+  end
 end

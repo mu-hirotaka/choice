@@ -1,0 +1,17 @@
+<div class="text-center">
+  <div class="description">
+    なるほど <span style="font-size: 30px;"><%= @character.name %></span> ですか。
+  </div>
+  <button onclick="location.href='/'" class="btn btn-warning btn-lg" style="width:98%">トップページ</button>
+</div>
+
+<div class="page-header-my">
+  <h3>その他</h3>
+</div>
+
+<div class="my-table">
+  <table class="table">
+    <thead><tr><th>順位</th><th>Name</th><th>選択回数</th></tr></thead>
+    <tbody><td>1</td><td><%= @character.name %></td><td>150</td></tbody>
+  </table>
+</div>

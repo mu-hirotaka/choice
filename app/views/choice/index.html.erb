@@ -20,11 +20,30 @@
   </div>
   <div class="row">
     <div class="col-xs-6">
-      <button id="left-done-btn" class="btn btn-primary btn-lg" style="width:100%">決定</button>
+      <button onclick="location.href='#modal-left-done'" id="left-done-btn" class="btn btn-primary btn-lg" style="width:100%">決定</button>
     </div>
     <div class="col-xs-6">
-      <button id="right-done-btn" class="btn btn-primary btn-lg" style="width:100%">決定</button>
+      <button onclick="location.href='#modal-right-done'" id="right-done-btn" class="btn btn-primary btn-lg" style="width:100%">決定</button>
     </div>
   </div>
   <button id="other-result-btn" class="btn btn-danger btn-lg" style="width:50%">他の人の結果</button>
+</div>
+
+<div id="modal">
+  <div id="modal-left-done">
+    <a href="#" class="close_overlay">x</a>
+    <span class="modal_window">
+      <h2>確認</h2>
+      <button id="left-modal-done-btn" class="btn btn-primary btn-lg">決定</button>
+      <button onclick="location.href='#'" class="btn btn-warning btn-lg">キャンセル</button>
+    </span>
+  </div>
+  <div id="modal-right-done">
+    <a href="#" class="close_overlay">x</a>
+    <span class="modal_window">
+      <h2>確認</h2>
+      <button id="right-modal-done-btn" class="btn btn-primary btn-lg">決定</button>
+      <button onclick="location.href='#'" class="btn btn-warning btn-lg">キャンセル</button>
+    </span>
+  </div>
 </div>
