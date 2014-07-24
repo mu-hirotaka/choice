@@ -8,7 +8,7 @@ $ ->
       error: (jqXHR, textStatus, errorThrown) ->
         console.log 'error'
       success: (data, textStatus, jqXHR) ->
-        path = "<img src='/assets/character/" + data.question_id + "/" + data.character_id + ".png'>"
+        path = "<img src='/images/character/" + data.question_id + "/" + data.character_id + ".png'>"
         $('#right-img').html(path)
         $('#right-btn').text(data.name)
         console.log data
@@ -22,7 +22,7 @@ $ ->
       error: (jqXHR, textStatus, errorThrown) ->
         console.log 'error'
       success: (data, textStatus, jqXHR) ->
-        path = "<img src='/assets/character/" + data.question_id + "/" + data.character_id + ".png'>"
+        path = "<img src='/images/character/" + data.question_id + "/" + data.character_id + ".png'>"
         $('#left-img').html(path)
         $('#left-btn').text(data.name)
         console.log data
