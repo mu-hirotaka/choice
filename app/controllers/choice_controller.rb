@@ -7,10 +7,10 @@ class ChoiceController < ApplicationController
     @right_character = all_characters.pop
   end
   def choice
-    characters = [{id:1,name:"ロナウド"} ,{id:2,name:"ロッベン"}]
     quest = QuestMaster.first
-    elected = characters.sample
-logger.debug( elected )
-    render :json => { :name => elected[:name], :character_id => elected[:id], :quest_id => quest.id }
+    all_characters = Character.where(:quest_id => quest.id).map { |character| character }
+    candidates = all_characters.select {|character| character.character_id != params[:l_character_id].to_i && character.character_id != params[:r_character_id].to_i }
+    elected = candidates.sample
+    render :json => { :name => elected.name, :character_id => elected.character_id, :quest_id => quest.id }
   end
 end

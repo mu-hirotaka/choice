@@ -1,6 +1,9 @@
 $ ->
   $('#left-choice-btn').click ->
-    data = { quest_id : 1, character_id : 1, name : 'ronald' }
+    quest_id = $('#left-choice-btn').attr('data-quest-id')
+    l_character_id = $('#left-choice-btn').attr('data-character-id')
+    r_character_id = $('#right-choice-btn').attr('data-character-id')
+    data = { quest_id : quest_id, l_character_id : l_character_id, r_character_id : r_character_id }
     $.ajax '/choice/choice',
       type: 'GET'
       dataType: 'json'
@@ -11,10 +14,14 @@ $ ->
         path = "<img class='right-img' src='/images/character/" + data.quest_id + "/" + data.character_id + ".png'>"
         $('#right-img').html(path)
         $('#right-choice-btn').text(data.name)
+        $('#right-choice-btn').attr('data-character-id', data.character_id)
         console.log data
 
   $('#right-choice-btn').click ->
-    data = { quest_id : 1, character_id : 2, name : 'robben' }
+    quest_id = $('#right-choice-btn').attr('data-quest-id')
+    l_character_id = $('#left-choice-btn').attr('data-character-id')
+    r_character_id = $('#right-choice-btn').attr('data-character-id')
+    data = { quest_id : quest_id, l_character_id : l_character_id, r_character_id : r_character_id }
     $.ajax '/choice/choice',
       type: 'GET'
       dataType: 'json'
@@ -25,5 +32,6 @@ $ ->
         path = "<img class='left-img' src='/images/character/" + data.quest_id + "/" + data.character_id + ".png'>"
         $('#left-img').html(path)
         $('#left-choice-btn').text(data.name)
+        $('#left-choice-btn').attr('data-character-id', data.character_id)
         console.log data
 
