@@ -1,14 +1,16 @@
 class ChoiceController < ApplicationController
   def index
-    @left_character = {id:1, name:"ロナウド"}
-    @right_character = {id:2, name:"ロッベン"}
-    @question = QuestMaster.first
+    @quest = QuestMaster.first
+    all_characters = Character.where(:quest_id => @quest.id).map { |character| character }
+    all_characters.shuffle!
+    @left_character = all_characters.pop
+    @right_character = all_characters.pop
   end
   def choice
     characters = [{id:1,name:"ロナウド"} ,{id:2,name:"ロッベン"}]
-    question = QuestMaster.first
+    quest = QuestMaster.first
     elected = characters.sample
 logger.debug( elected )
-    render :json => { :name => elected[:name], :character_id => elected[:id], :question_id => question.id }
+    render :json => { :name => elected[:name], :character_id => elected[:id], :quest_id => quest.id }
   end
 end
