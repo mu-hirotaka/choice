@@ -3,19 +3,28 @@
   <div class="row">
     <div id="left-img" class="col-xs-6">
       <% left_img_path = ['/images/character/', @question.id, '/', @left_character[:id], '.png'].join() %>
-      <img src="<%= left_img_path %>">
+      <img class="left-img" src="<%= left_img_path %>">
     </div>
     <div id="right-img" class="col-xs-6">
       <% right_img_path = ['/images/character/', @question.id, '/', @right_character[:id], '.png'].join() %>
-      <img src="<%= right_img_path %>">
+      <img class="right-img" src="<%= right_img_path %>">
     </div>
   </div>
   <div class="row">
     <div class="col-xs-6">
-      <button id="left-btn" class="btn btn-warning btn-lg" style="width:100%"><%= @left_character[:name] %></button>
+      <button id="left-choice-btn" class="btn btn-warning btn-lg" style="width:100%"><%= @left_character[:name] %></button>
     </div>
     <div class="col-xs-6">
-      <button id="right-btn" class="btn btn-warning btn-lg" style="width:100%"><%= @right_character[:name] %></button>
+      <button id="right-choice-btn" class="btn btn-warning btn-lg" style="width:100%"><%= @right_character[:name] %></button>
     </div>
   </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <button id="left-done-btn" class="btn btn-primary btn-lg" style="width:100%"><%= @left_character[:name] %>に決定</button>
+    </div>
+    <div class="col-xs-6">
+      <button id="right-done-btn" class="btn btn-primary btn-lg" style="width:100%"><%= @right_character[:name] %>に決定</button>
+    </div>
+  </div>
+  <button id="other-result-btn" class="btn btn-danger btn-lg" style="width:50%">他の人の結果</button>
 </div>
