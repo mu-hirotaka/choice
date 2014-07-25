@@ -14,6 +14,20 @@ class ChoiceController < ApplicationController
     render :json => { :name => elected.name, :character_id => elected.character_id, :quest_id => quest.id }
   end
   def done
-    @character = Character.where('quest_id = ? AND character_id = ?', params[:qid], params[:cid]).sample
+    quest_id = params[:qid]
+    character_id = params[:cid]
+    character_summary = CharacterSummary.find_or_initialize_by(quest_id: quest_id, character_id: character_id)
+    character_summary.selected_count = character_summary.selected_count + 1
+    character_summary.save
+    @summaries = CharacterSummary.where('quest_id = ?', quest_id).order('selected_count desc')
+    @chara_info = {}
+    Character.where('quest_id = ?', quest_id).map { |character| @chara_info[character.character_id] = character.name }
+    @character = Character.where('quest_id = ? AND character_id = ?', quest_id, character_id).first
+  end
+  def show_others
+    quest_id = params[:qid]
+    @summaries = CharacterSummary.where('quest_id = ?', quest_id).order('selected_count desc')
+    @chara_info = {}
+    Character.where('quest_id = ?', quest_id).map { |character| @chara_info[character.character_id] = character.name }
   end
 end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'choice' => 'choice#index'
   get 'choice/choice' => 'choice#choice'
   get 'choice/done' => 'choice#done'
+  get 'choice/show_others' => 'choice#show_others'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

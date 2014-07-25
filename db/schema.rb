@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724060500) do
+ActiveRecord::Schema.define(version: 20140725010702) do
+
+  create_table "character_summaries", force: true do |t|
+    t.integer  "quest_id",                   null: false
+    t.integer  "character_id",               null: false
+    t.integer  "selected_count", default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "characters", force: true do |t|
     t.integer "quest_id",     null: false

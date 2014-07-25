@@ -45,3 +45,7 @@ $ ->
     r_character_id = $('#right-choice-btn').attr('data-character-id')
     location.href = '/choice/done?qid=' + quest_id + '&cid=' + r_character_id
 
+  $('#other-result-btn').click ->
+    quest_id = $('#right-choice-btn').attr('data-quest-id')
+    location.href = '/choice/show_others?qid=' + quest_id
+
